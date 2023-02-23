@@ -15,13 +15,16 @@ form.addEventListener('submit' ,function(e){
         address: address
       };
 
-    var myobj_serialized = JSON.stringify("userDetails")
-
-    localStorage.setItem("userDetails",myobj_serialized)
-    
-    var myobj_deserialized = JSON.parse(localStorage.getItem("userDetail"))
-    console.log(myobj_deserialized)
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+      alert('User details have been saved successfully!');
 
 })
-
+window.addEventListener('load', function() {
+  const userDetails = JSON.parse(localStorage.getItem('userDetails'))
+  if (userDetails) {
+    document.querySelector('#name-input').value = userDetails.name;
+    document.querySelector('#email-input').value = userDetails.email;
+    document.querySelector('#address-input').value = userDetails.address;
+  }
+});
 
