@@ -17,6 +17,7 @@ form.addEventListener('submit' ,function(e){
 
       localStorage.setItem('userDetails', JSON.stringify(userDetails));
       alert('User details have been saved successfully!');
+      show(userDetails)
 
 })
 window.addEventListener('load', function() {
@@ -28,3 +29,7 @@ window.addEventListener('load', function() {
   }
 });
 
+function show(userDetails){
+  var ele=document.getElementById("listofitem")
+  ele.innerHTML=ele.innerHTML+`<li>${userDetails.name}-${userDetails.email}-${userDetails.address}</li>`
+}
