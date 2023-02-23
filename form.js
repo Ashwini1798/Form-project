@@ -31,5 +31,17 @@ window.addEventListener('load', function() {
 
 function show(userDetails){
   var ele=document.getElementById("listofitem")
-  ele.innerHTML=ele.innerHTML+`<li>${userDetails.name}-${userDetails.email}-${userDetails.address}</li>`
+  var chaildele=document.createElement("li")
+  chaildele.innerHTML=ele.innerHTML+`<li>${userDetails.name}-${userDetails.email}-${userDetails.address}</li>`
+
+ var dlt=document.createElement("input")
+dlt.type="button"
+dlt.value="Delete"
+dlt.id="submit-button"
+dlt.onclick=()=>{
+localStorage.removeItem(userDetails.value)
+ele.removeChild(chaildele)
+}
+chaildele.appendChild(dlt)
+ele.appendChild(chaildele)
 }
