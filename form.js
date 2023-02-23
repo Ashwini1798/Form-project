@@ -15,9 +15,12 @@ form.addEventListener('submit' ,function(e){
         address: address
       };
 
-    localStorage.setItem("userDetails",JSON.stringify(userDetails))
+    var myobj_serialized = JSON.stringify("userDetails")
+
+    localStorage.setItem("userDetails",myobj_serialized)
     
-    alert('User details have been saved successfully!');
+    var myobj_deserialized = JSON.parse(localStorage.getItem("userDetail"))
+    console.log(myobj_deserialized)
 
 })
 
